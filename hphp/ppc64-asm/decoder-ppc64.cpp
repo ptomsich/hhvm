@@ -147,6 +147,7 @@ Decoder* Decoder::s_decoder = nullptr;
 #define XT        XS
 
 Decoder::Decoder() {
+#if defined(IS_PPC64)
   m_decoder_table = new DecoderInfo*[kDecoderSize];
   for (int i = 0; i < kDecoderSize; i++) {
     m_decoder_table[i] = nullptr;
@@ -166,6 +167,7 @@ Decoder::Decoder() {
   PPC64_OPCODES
 
 #undef DE
+#endif
 }
 
 #undef A
